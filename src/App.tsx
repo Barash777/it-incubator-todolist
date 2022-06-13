@@ -15,6 +15,8 @@ function App() {
 
 
     const [tasks, setTasks] = useState<Array<TaskType>>(initialTasks)
+    const [filter, setFilter] = useState<FilterValuesType>('all');
+
 
     //let stateWillBeBack = tasks
     //console.log('init: ' + stateWillBeBack.length)
@@ -53,7 +55,14 @@ function App() {
         setTasks([newAr[0], newAr[1]])
     }*/
 
-    const [filter, setFilter] = useState<FilterValuesType>('all');
+    const changeTaskStatus = (taskID: string, isDone: boolean) => {
+        // console.log('id = ' + taskID + ', isDone new = ', isDone)
+
+        setTasks(tasks.map(t =>
+            // t.id === taskID ? {...t, isDone: isDone} : t
+            t.id === taskID ? {...t, isDone} : t
+        ))
+    }
 
     const changeFilter = (filter: FilterValuesType) => {
         setFilter(filter)
@@ -77,6 +86,8 @@ function App() {
                       addTask={addTask}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
+                      changeTaskStatus={changeTaskStatus}
+                      filter={filter}
                 //setLastTasks={setLastTasks}
             />
         </div>
