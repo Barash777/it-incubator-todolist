@@ -5,6 +5,7 @@ import {v1} from 'uuid';
 import Input from './components/Input';
 
 export type FilterValuesType = 'all' | 'active' | 'completed';
+
 type TodolistType = {
     id: string
     title: string
@@ -51,7 +52,7 @@ function App() {
 
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
-        
+
         // перезапишем в этом объекте массив для нужного тудулиста копией, добавив в начало новую таску:
         tasks[todolistId] = [task, ...todolistTasks];
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
