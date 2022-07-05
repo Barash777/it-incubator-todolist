@@ -13,3 +13,11 @@ serviceWorker.unregister();
 
 // "start": "react-scripts start",
 // "start": "node index.js",
+
+/*
+"scripts": {
+    "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+},*/
